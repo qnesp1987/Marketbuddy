@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Reflection;
-using System.Threading.Tasks;
+using System. Reflection;
+using System.Threading. Tasks;
 using Dalamud.Game.ClientState.Keys;
 using Dalamud.Game.Command;
 using Dalamud.Game.Text;
-using Dalamud.Logging;
 using Dalamud.Plugin;
-using Dalamud.Utility.Signatures;
+using Dalamud. Utility.Signatures;
 using FFXIVClientStructs;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
-using FFXIVClientStructs.Interop;
+using FFXIVClientStructs. Interop;
 using Dalamud.Bindings.ImGui;
 using Marketbuddy.Common;
 using Marketbuddy.Structs;
-using static Marketbuddy.Common.Dalamud;
+using static Marketbuddy.Common. Dalamud;
 
 namespace Marketbuddy
 {
@@ -53,7 +52,14 @@ namespace Marketbuddy
             catch (Exception e)
             {
                 if (e is not OperationCanceledException)
-                    Log.Error(e, "Error loading plugin");
+                {
+                    // Check if Log was initialized before trying to use it
+                    if (Log != null)
+                        Log.Error(e, "Error loading plugin");
+                    else
+                        // Fallback to console or re-throw
+                        throw;
+                }
             }
         }
 
@@ -63,7 +69,7 @@ namespace Marketbuddy
             PluginInterface.UiBuilder.Draw -= DrawUi;
             PluginInterface.UiBuilder.OpenConfigUi -= DrawConfigUi;
             Common.Dalamud.CommandManager.RemoveHandler(commandName);
-            PluginUi.Dispose();
+            PluginUi. Dispose();
             MarketGuiEventHandler.Dispose();
             Commons.Dispose();
         }
@@ -71,7 +77,7 @@ namespace Marketbuddy
         private void OnCommand(string command, string args)
         {
             if (command == commandName)
-                PluginUi.SettingsVisible = !PluginUi.SettingsVisible;
+                PluginUi.SettingsVisible = ! PluginUi.SettingsVisible;
         }
 
         private void DrawUi()
