@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> Marketbuddy has moved!
+> 
+> Development will continue at https://github.com/PunishXIV/Marketbuddy
+
 # Marketbuddy
 
 Plugin for XivLauncher/Dalamud to help with your day-to-day market operations.
@@ -5,7 +10,7 @@ Plugin for XivLauncher/Dalamud to help with your day-to-day market operations.
 ## How to get
 
 1. Dalamud settings -> Experimental
-2. Add `https://raw.githubusercontent.com/Chalkos/Marketbuddy/main/repo.json` and enable it
+2. Add `https://love.puni.sh/ment.json` and enable it
 3. Install from the plugin list
 
 ## Commands
